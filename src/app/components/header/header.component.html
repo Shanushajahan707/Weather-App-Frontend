@@ -1,0 +1,9 @@
+<header class="header">
+    <h1 class="header-title">{{ headerTitle }}</h1>
+    <nav class="navbar" *ngIf="isLoggedIn">
+      <button (click)="navigateTo('Home', '/home')">Home</button>
+      <button (click)="navigateTo('Weather', '/weather')">Weather</button>
+      <button (click)="logout()">Logout</button>
+    </nav>
+  </header>
+  

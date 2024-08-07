@@ -1,0 +1,40 @@
+<div class="main">
+    <div class="switch navbar" *ngIf="!isLoggedIn">
+      <button (click)="showLoginForm()" [class.active]="isLoginMode">Login</button>
+      <button (click)="showRegisterForm()" [class.active]="!isLoginMode">Register</button>
+    </div>
+  
+    <form *ngIf="isLoginMode" [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()" class="auth-form">
+      <input type="text" placeholder="Email" formControlName="email"/>
+      <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)" class="text-red-500 text-xs mt-1">
+        <div *ngIf="loginForm.get('email')?.errors?.['required']">Username is required.</div>
+        <div *ngIf="loginForm.get('email')?.errors?.['email']">Invalid email format.</div>
+      </div>
+      <input type="password" placeholder="Password" formControlName="password"/>
+      <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)" class="text-red-500 text-xs mt-1">
+        <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</div>
+        <div *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</div>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  
+    <form *ngIf="!isLoginMode" [formGroup]="registerForm" (ngSubmit)="onSubmitRegister()" class="auth-form">
+      <input type="text" placeholder="Email" formControlName="email"/>
+      <div *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)" class="text-red-500 text-xs mt-1">
+        <div *ngIf="registerForm.get('email')?.errors?.['required']">Username is required.</div>
+        <div *ngIf="registerForm.get('email')?.errors?.['email']">Invalid email format.</div>
+      </div>
+      <input type="password" placeholder="Password" formControlName="password"/>
+      <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)" class="text-red-500 text-xs mt-1">
+        <div *ngIf="registerForm.get('password')?.errors?.['required']">Password is required.</div>
+        <div *ngIf="registerForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</div>
+      </div>
+      <input type="password" placeholder="Confirm Password" formControlName="confirmPassword"/>
+      <div *ngIf="registerForm.get('confirmPassword')?.invalid && (registerForm.get('confirmPassword')?.dirty || registerForm.get('confirmPassword')?.touched)" class="text-red-500 text-xs mt-1">
+        <div *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">Confirm Password is required.</div>
+        <div *ngIf="registerForm.get('confirmPassword')?.errors?.['mustMatch']">Passwords must match.</div>
+      </div>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+  

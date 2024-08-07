@@ -1,0 +1,138 @@
+// Colors
+$greenSeaweed: rgba(2, 128, 144, 1);
+$blueQueen: rgba(69, 105, 144, 1);
+$redFire: rgba(244, 91, 105, 1);
+
+// Fonts
+$fontAsap: 'Asap', sans-serif;
+
+.main {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 247, 247);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-form {
+  overflow: hidden;
+  background-color: white;
+  padding: 40px 30px 30px 30px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  transform: translate(-50%, -50%);
+  transition: transform 300ms, box-shadow 300ms;
+  box-shadow: 5px 10px 10px rgba($greenSeaweed, 0.2);
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-top-left-radius: 40%;
+    border-top-right-radius: 45%;
+    border-bottom-left-radius: 35%;
+    border-bottom-right-radius: 40%;
+    z-index: -1;
+  }
+
+  &::before {
+    left: 40%;
+    bottom: -130%;
+    background-color: rgba($blueQueen, 0.15);
+    animation: wawes 6s infinite linear;
+  }
+
+  &::after {
+    left: 35%;
+    bottom: -125%;
+    background-color: rgba($greenSeaweed, 0.2);
+    animation: wawes 7s infinite;
+  }
+
+  input {
+    font-family: $fontAsap;
+    display: block;
+    border-radius: 5px;
+    font-size: 16px;
+    background: white;
+    width: 100%;
+    border: 0;
+    padding: 10px;
+    margin: 15px 0;
+  }
+
+  button {
+    font-family: $fontAsap;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    width: 100%;
+    border: 0;
+    padding: 10px 0;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: $redFire;
+    transition: background-color 300ms;
+
+    &:hover {
+      background-color: darken($redFire, 5%);
+    }
+  }
+}
+
+// Define keyframes
+@keyframes wawes {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
+a {
+  text-decoration: none;
+  color: rgba(white, 0.6);
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 12px;
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
+  }
+  
+  .navbar button {
+    font-family: 'Asap', sans-serif;
+    background: linear-gradient(145deg, rgba(244, 91, 105, 1), rgba(220, 70, 85, 1));
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: transform 300ms, background 300ms, box-shadow 300ms;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  
+    &:hover {
+      background: linear-gradient(145deg, rgba(220, 70, 85, 1), rgba(244, 91, 105, 1));
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+  
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 5px rgba(244, 91, 105, 0.8);
+    }
+  
+    &.active {
+      background: linear-gradient(145deg, rgba(244, 91, 105, 1), rgba(220, 70, 85, 1));
+      color: #fff;
+      transform: scale(1.05);
+    }
+  }
+  

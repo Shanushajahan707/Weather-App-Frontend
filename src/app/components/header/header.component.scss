@@ -1,0 +1,41 @@
+.header {
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(0, 247, 247);
+    color: white;
+  }
+  
+  .header-title {
+    font-family: fantasy;
+    font-size: 36px;
+    margin: 0;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
+  }
+  
+  .navbar button {
+    font-family: 'Asap', sans-serif;
+    background-color: rgba(244, 91, 105, 1); /* $redFire equivalent */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 300ms, color 300ms;
+  
+    &:hover {
+      background-color: darken(rgba(244, 91, 105, 1), 5%);
+      color: rgba(255, 255, 255, 0.8);
+    }
+  
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 5px rgba(244, 91, 105, 0.8);
+    }
+  }
+  
