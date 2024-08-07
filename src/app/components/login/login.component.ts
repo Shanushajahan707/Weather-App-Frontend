@@ -64,12 +64,7 @@ export class LoginComponent  implements OnInit{
           alert(response.message);
           this.loginForm.reset();
           this._router.navigate(['/home'])
-        },
-        error: (err) => {
-          console.error('Login error', err);
-          alert(err.error.message);
-          this.error = err.error.message;
-        },
+        }
       });
     } else {
       this.error = 'Please fill out the form correctly.';
@@ -86,11 +81,7 @@ export class LoginComponent  implements OnInit{
           alert(response.message);
           this.registerForm.reset();
           this.showLoginForm();  // Switch to login form after successful registration
-        },
-        error: (err) => {
-          console.error('Registration error', err);
-          this.error = err.error.message;
-        },
+        }
       });
     } else {
       this.error = 'Please fill out the form correctly.';
