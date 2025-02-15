@@ -24,11 +24,25 @@ $fontAsap: 'Asap', sans-serif;
   top: 50%;
   left: 50%;
   width: 400px;
+  max-width: 100%;
   transform: translate(-50%, -50%);
   transition: transform 300ms, box-shadow 300ms;
   box-shadow: 5px 10px 10px rgba($greenSeaweed, 0.2);
 
-  &::before, &::after {
+  @media (max-width: 480px) {
+    width: 90%;
+  }
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+
+  @media (max-width: 1024px) {
+    width: 60%;
+  }
+
+  &::before,
+  &::after {
     content: '';
     position: absolute;
     width: 600px;
@@ -85,6 +99,7 @@ $fontAsap: 'Asap', sans-serif;
     }
   }
 }
+
 
 // Define keyframes
 @keyframes wawes {
